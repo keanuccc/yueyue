@@ -8,8 +8,10 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
     <style>
-        /* --- 1. 全局定义 --- */
+        /* --- 样式部分 (保持唯美设计不变) --- */
         :root {
             --primary-pink: #eec1cd; --deep-pink: #d4a5b0; --accent-red: #cc7a8b;
             --cream-bg: #fffbf0; --text-main: #5d4e52; --text-light: #9c8e92;
@@ -82,7 +84,7 @@
         .card-glow { position: absolute; width: 150%; height: 150%; background: radial-gradient(circle, rgba(238, 193, 205, 0.4) 0%, transparent 60%); top: -50%; left: -50%; opacity: 0; transition: opacity 0.5s; pointer-events: none; }
         .portal-card:hover .card-glow { opacity: 1; }
 
-        /* ==================== PART 2: 纪念日 (MEMORIES) - NEW ==================== */
+        /* ==================== PART 2: 纪念日 (MEMORIES) ==================== */
         #page-memories { padding-top: 100px; background: linear-gradient(to bottom, #fffbf0, #fff0f5); min-height: 100vh; }
         .memories-input-area { max-width: 600px; margin: 0 auto 60px auto; position: relative; z-index: 10; display: flex; flex-direction: column; gap: 15px; }
         .memory-form-row { display: flex; gap: 10px; }
@@ -108,7 +110,6 @@
         .mem-desc { font-size: 0.9rem; color: #666; line-height: 1.6; }
         .mem-badge { display: inline-block; margin-top: 10px; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
         
-        /* 过去/未来 样式 */
         .mem-past .mem-badge { background: #fff0f5; color: var(--accent-red); }
         .mem-future .mem-badge { background: #e0f7fa; color: #00838f; }
 
@@ -275,19 +276,19 @@
             <div class="portal-card" onclick="navigateTo('page-main')">
                 <div class="card-glow"></div>
                 <img src="image_1.jpg" alt="Planet">
-                <h2 class="card-label">My Planet</h2>
+                <h2 class="card-label">宝宝我爱你</h2>
                 <p class="card-desc">想给樾樾做的东西<br>藏着我对你的真心</p>
             </div>
             <div class="portal-card" onclick="navigateTo('page-memories')">
                 <div class="card-glow"></div>
                 <img src="image_2.jpg" alt="Memories">
-                <h2 class="card-label">Our Memories</h2>
+                <h2 class="card-label">宝宝我喜欢你</h2>
                 <p class="card-desc">特殊纪念日<br>时间的刻度，爱的长度</p>
             </div>
             <div class="portal-card" onclick="navigateTo('page-message')">
                 <div class="card-glow"></div>
                 <img src="image_3.jpg" alt="Message">
-                <h2 class="card-label">Mood Log</h2>
+                <h2 class="card-label">宝宝我想你</h2>
                 <p class="card-desc">心情记录 & 留言<br>记录每一个想念的瞬间</p>
             </div>
         </div>
@@ -298,15 +299,15 @@
         <section id="hero">
             <div class="container" style="text-align: center;">
                 <img src="img_bear.png" class="hero-avatar" alt="小熊" data-aos="zoom-in" data-aos-duration="1200">
-                <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">Happy Valentine's Day</h1>
-                <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">To 我最可爱的 樾樾 · My Exclusive Planet</p>
+                <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">情人节快乐！不止情人节</h1>
+                <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">To 我最可爱的 樾樾</p>
                 <div class="glass-panel timer-box" data-aos="fade-up" data-aos-delay="600">
                     <div class="time-unit"><span class="time-val" id="d">0</span><span class="time-label">Days</span></div>
                     <div class="time-unit"><span class="time-val" id="h">0</span><span class="time-label">Hours</span></div>
                     <div class="time-unit"><span class="time-val" id="m">0</span><span class="time-label">Minutes</span></div>
                     <div class="time-unit"><span class="time-val" id="s">0</span><span class="time-label">Seconds</span></div>
                 </div>
-                <p style="margin-top:30px; color:var(--text-light); font-size: 0.95rem;" data-aos="fade-in" data-aos-delay="800">Since 2026.01.31 · 糯米包汤圆的甜蜜开始</p>
+                <p style="margin-top:30px; color:var(--text-light); font-size: 0.95rem;" data-aos="fade-in" data-aos-delay="800">Since 2026.01.31 · 糯米包汤圆和我的甜蜜开始</p>
             </div>
             <div class="scroll-hint"><span style="font-size: 0.85rem; letter-spacing: 2px; color: var(--accent-red);">SCROLL DOWN</span><div class="scroll-line"></div></div>
         </section>
@@ -314,11 +315,11 @@
             <div class="container">
                 <div class="train-content" data-aos="fade-right">
                     <h2 style="font-size: 2.8rem; margin-bottom: 25px;">🚂 小熊二号 · 专属专列</h2>
-                    <p style="color: #666; line-height: 1.8; margin-bottom: 40px; font-size: 1.1rem;">这是一趟开往春天的列车。<br>满载着我为你准备的“甜蜜物资”，<br>每一份都藏着我想对你好的小心思。</p>
+                    <p style="color: #666; line-height: 1.8; margin-bottom: 40px; font-size: 1.1rem;">亲爱的铁路人樾樾！<br>我想成为铁路人家属！<br>我想将这些”甜蜜物资“送给你！</p>
                     <div class="cargo-grid">
-                        <div class="glass-panel cargo-card" data-aos="zoom-in" data-aos-delay="100"><span class="cargo-icon">🧸</span><div style="font-weight:bold; margin-bottom:5px;">可爱能量</div><div class="cargo-desc">亲手织的玩偶<br>守护你的少女心</div></div>
-                        <div class="glass-panel cargo-card" data-aos="zoom-in" data-aos-delay="300"><span class="cargo-icon">🍔</span><div style="font-weight:bold; margin-bottom:5px;">满足感特快</div><div class="cargo-desc">塔斯汀、炸杏鲍菇<br>包养你的胃</div></div>
-                        <div class="glass-panel cargo-card" data-aos="zoom-in" data-aos-delay="500"><span class="cargo-icon">💄</span><div style="font-weight:bold; margin-bottom:5px;">美丽补给</div><div class="cargo-desc">口红与香水<br>给最精致的你</div></div>
+                        <div class="glass-panel cargo-card" data-aos="zoom-in" data-aos-delay="100"><span class="cargo-icon">🧸</span><div style="font-weight:bold; margin-bottom:5px;">可爱能量</div><div class="cargo-desc">想给樾樾亲手织玩偶<br>守护你的少女心</div></div>
+                        <div class="glass-panel cargo-card" data-aos="zoom-in" data-aos-delay="300"><span class="cargo-icon">🍔</span><div style="font-weight:bold; margin-bottom:5px;">美味满足感</div><div class="cargo-desc">塔斯汀、炸杏鲍菇<br>我要包养樾樾的胃！</div></div>
+                        <div class="glass-panel cargo-card" data-aos="zoom-in" data-aos-delay="500"><span class="cargo-icon">💄</span><div style="font-weight:bold; margin-bottom:5px;">美丽补给</div><div class="cargo-desc">口红与香水<br>给最精致的樾樾</div></div>
                     </div>
                 </div>
                 <div class="train-visual" data-aos="fade-left" data-aos-delay="200"><img src="img_train.png" alt="Train"></div>
@@ -327,7 +328,7 @@
         <section id="galaxy">
             <div class="container" style="text-align: center; position: relative; z-index: 5;">
                 <div style="margin-bottom: 40px;" data-aos="fade-down">
-                    <h2 style="font-size: 2.5rem; color: var(--text-main);">Your Delicious Galaxy</h2>
+                    <h2 style="font-size: 2.5rem; color: var(--text-main);">樾樾的美味星系</h2>
                     <p style="color: var(--accent-red); margin-top: 10px; font-weight: 500;">点击你喜欢的食物，点亮属于你的星球 ✨</p>
                 </div>
                 <div class="galaxy-wrapper" style="margin: 0 auto;" data-aos="zoom-in-up" data-aos-delay="200">
@@ -378,10 +379,10 @@
             <div class="glass-panel memories-input-area">
                 <div class="memory-form-row">
                     <input type="date" id="mem-date" class="mem-input">
-                    <input type="text" id="mem-title" class="mem-input" placeholder="纪念日名称 (如: 第一次看电影)" style="flex:1;">
+                    <input type="text" id="mem-title" class="mem-input" placeholder="特殊日子" style="flex:1;">
                 </div>
                 <input type="text" id="mem-desc" class="mem-input" placeholder="写下一句话备注...">
-                <button class="submit-btn" onclick="addMemory()">Record Memory</button>
+                <button class="submit-btn" onclick="addMemory()">发送</button>
             </div>
 
             <div class="timeline-container" id="timeline-list">
@@ -424,54 +425,85 @@
         </div>
     </div>
 
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // =========================================================
+        // 1. SUPABASE 配置 (唯一且正确)
+        // =========================================================
+        const supabaseUrl = 'https://dlddfuahnbzzcbdhufpl.supabase.co'; //
+        const supabaseKey = 'sb_publishable_p5lcAQ0t4yUYO-3-1UlpyA_Gu094soX'; //
+
+        // 【关键点】这里使用 supabaseClient 这个名字，永远不要改成 supabase
+        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
         // --- Init ---
         AOS.init({ duration: 1000, once: true, offset: 150 });
         const cursorGlow = document.getElementById('cursor-glow');
-        document.addEventListener('mousemove', (e) => { cursorGlow.style.left = e.clientX + 'px'; cursorGlow.style.top = e.clientY + 'px'; });
+        document.addEventListener('mousemove', (e) => { 
+            if(cursorGlow) {
+                cursorGlow.style.left = e.clientX + 'px'; 
+                cursorGlow.style.top = e.clientY + 'px'; 
+            }
+        });
 
         // --- Navigation ---
         function navigateTo(pageId) {
             document.querySelectorAll('.page-container').forEach(el => el.classList.remove('active'));
-            document.querySelector('.back-btn').classList.remove('show');
+            const backBtn = document.querySelector('.back-btn');
+            if(backBtn) backBtn.classList.remove('show');
+            
             setTimeout(() => {
-                document.getElementById(pageId).classList.add('active');
-                if(pageId !== 'page-portal') { document.getElementById('back-btn').classList.add('show'); }
-                if(pageId === 'page-main') setTimeout(() => AOS.refresh(), 500);
+                const target = document.getElementById(pageId);
+                if(target) {
+                    target.classList.add('active');
+                    if(pageId !== 'page-portal' && backBtn) { backBtn.classList.add('show'); }
+                    if(pageId === 'page-main') setTimeout(() => AOS.refresh(), 500);
+                }
             }, 300);
         }
         function goHome() { navigateTo('page-portal'); }
 
-        // --- Memories Logic (New) ---
-        function addMemory() {
+        // =========================================================
+        // 2. 纪念日逻辑 (解决重复显示问题)
+        // =========================================================
+        async function addMemory() {
             const dateVal = document.getElementById('mem-date').value;
             const title = document.getElementById('mem-title').value.trim();
             const desc = document.getElementById('mem-desc').value.trim();
             if(!dateVal || !title) return alert("请填写日期和标题哦~");
 
-            const memory = { id: Date.now(), date: dateVal, title: title, desc: desc };
-            let memories = JSON.parse(localStorage.getItem('planet_memories') || '[]');
-            memories.push(memory);
-            memories.sort((a, b) => new Date(a.date) - new Date(b.date)); // Sort by date
-            localStorage.setItem('planet_memories', JSON.stringify(memories));
-            
-            renderMemories();
-            document.getElementById('mem-title').value = ''; document.getElementById('mem-desc').value = '';
+            const { error } = await supabaseClient
+                .from('memories')
+                .insert([{ date_str: dateVal, title: title, description: desc }]);
+
+            if (error) {
+                alert("保存失败: " + error.message);
+            } else {
+                document.getElementById('mem-title').value = '';
+                document.getElementById('mem-desc').value = '';
+                // 数据会自动刷新，无需手动调用
+            }
         }
 
-        function renderMemories() {
+        async function renderMemories() {
             const container = document.getElementById('timeline-list');
-            // Keep the line
-            container.innerHTML = '<div class="timeline-line"></div>';
+            if(!container) return;
+
+            // 【关键点】在渲染前，必须先清空列表，防止重复！
+            container.innerHTML = '<div class="timeline-line"></div>'; 
             
-            let memories = JSON.parse(localStorage.getItem('planet_memories') || '[]');
+            const { data: memories, error } = await supabaseClient
+                .from('memories')
+                .select('*')
+                .order('date_str', { ascending: false });
+
+            if(error) return console.error(error);
+
             const now = new Date();
             now.setHours(0,0,0,0);
 
             memories.forEach((mem, index) => {
-                const memDate = new Date(mem.date);
+                const memDate = new Date(mem.date_str);
                 const diffTime = memDate - now;
                 const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
                 
@@ -485,25 +517,41 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-card">
                         <div class="mem-title">${mem.title}</div>
-                        <div class="mem-date">${mem.date}</div>
-                        <div class="mem-desc">${mem.desc}</div>
+                        <div class="mem-date">${mem.date_str}</div>
+                        <div class="mem-desc">${mem.description || ''}</div>
                         <div class="mem-badge">${badgeText}</div>
                     </div>
                 `;
                 container.appendChild(item);
+                // 简单的动画延时
                 setTimeout(() => item.classList.add('show'), index * 150);
             });
         }
 
-        // --- Message Board Logic (Cleaned Data) ---
-        // Changed key to '_reset' to clear previous data for the user
-        const STORAGE_KEY = 'planet_messages_reset_v3'; 
+        // =========================================================
+        // 3. 留言板逻辑
+        // =========================================================
         let selectedEmotions = new Set(['🍬 甜蜜']); 
         
         window.onload = function() {
-            loadMessages(); renderArchive(); updateTimer(); renderMemories();
+            renderMemories();
+            loadMessages(); 
+            renderArchive(); 
+            updateTimer();
             const defaultBtn = document.querySelector(".emotion-btn");
             if(defaultBtn) defaultBtn.classList.add("active");
+
+            // 开启实时监听 (自动刷新)
+            supabaseClient
+                .channel('schema-db-changes')
+                .on('postgres_changes', { event: '*', schema: 'public', table: 'messages' }, () => {
+                    loadMessages(); 
+                    renderArchive();
+                })
+                .on('postgres_changes', { event: '*', schema: 'public', table: 'memories' }, () => {
+                    renderMemories(); 
+                })
+                .subscribe();
         };
 
         function toggleEmotion(emo, btn) {
@@ -528,62 +576,101 @@
             }
         }
 
-        function postMessage() {
+        async function postMessage() {
             const input = document.getElementById('msg-input');
             const text = input.value.trim();
             if(!text) return alert("写点什么再发送吧~");
 
-            const msg = {
-                id: Date.now(), text: text, emotions: Array.from(selectedEmotions),
-                date: new Date().toLocaleString(), monthKey: new Date().toISOString().slice(0, 7), comments: []
+            const newMsg = {
+                content: text,
+                emotions: Array.from(selectedEmotions),
+                comments: []
             };
 
-            let messages = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-            messages.unshift(msg);
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
-            loadMessages(); renderArchive(); input.value = ''; 
+            const { error } = await supabaseClient.from('messages').insert([newMsg]);
+
+            if (error) {
+                alert("发送失败: " + error.message);
+            } else {
+                input.value = ''; 
+            }
         }
 
         function toggleReply(msgId, event) {
             if(event) event.stopPropagation();
             const box = document.getElementById(`reply-box-${msgId}`);
-            if(box.style.display === 'flex') { box.style.display = 'none'; } 
-            else { box.style.display = 'flex'; document.getElementById(`reply-input-${msgId}`).focus(); }
+            if(box) {
+                if(box.style.display === 'flex') { box.style.display = 'none'; } 
+                else { 
+                    box.style.display = 'flex'; 
+                    const replyInput = document.getElementById(`reply-input-${msgId}`);
+                    if(replyInput) replyInput.focus(); 
+                }
+            }
         }
 
-        function sendReply(msgId, event) {
+        async function sendReply(msgId, event) {
             if(event) event.stopPropagation();
             const input = document.getElementById(`reply-input-${msgId}`);
             const text = input.value.trim();
             if(!text) return;
 
-            let messages = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-            const msgIndex = messages.findIndex(m => m.id === msgId);
-            if(msgIndex !== -1) {
-                messages[msgIndex].comments.push({ text: text, time: new Date().toLocaleString() });
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
-                loadMessages(); 
+            const { data: currentMsg, error: fetchError } = await supabaseClient
+                .from('messages')
+                .select('comments')
+                .eq('id', msgId)
+                .single();
+            
+            if(fetchError) return alert('回复失败');
+
+            const newComment = { text: text, time: new Date().toLocaleString() };
+            const updatedComments = [...(currentMsg.comments || []), newComment];
+
+            const { error: updateError } = await supabaseClient
+                .from('messages')
+                .update({ comments: updatedComments })
+                .eq('id', msgId);
+            
+            if(!updateError) {
+                // 成功，等待自动刷新
             }
         }
 
         function toggleCapsule(element) {
-            const card = element.closest('.msg-card'); card.classList.toggle('capsule');
+            const card = element.closest('.msg-card'); 
+            if(card) card.classList.toggle('capsule');
         }
         function toggleAllCapsules(shouldCollapse) {
             const cards = document.querySelectorAll('.msg-card');
             cards.forEach(card => { if(shouldCollapse) card.classList.add('capsule'); else card.classList.remove('capsule'); });
         }
-        function onCardClick(card, event) { if(card.classList.contains('capsule')) { card.classList.remove('capsule'); } }
+        function onCardClick(card, event) { 
+            if(card.classList.contains('capsule')) { card.classList.remove('capsule'); } 
+        }
 
-        function loadMessages(filterMonth = null) {
-            const grid = document.getElementById('message-list'); grid.innerHTML = '';
-            let messages = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-            if(filterMonth) { messages = messages.filter(m => m.monthKey === filterMonth); }
+        async function loadMessages(filterMonth = null) {
+            const grid = document.getElementById('message-list');
+            if(!grid) return;
+            
+            let query = supabaseClient.from('messages').select('*').order('created_at', { ascending: false });
+            const { data: messages, error } = await query;
 
-            messages.forEach((msg, index) => {
+            if(error) return console.error(error);
+            
+            grid.innerHTML = ''; // 清空列表，防止重复
+            
+            const filteredMessages = filterMonth 
+                ? messages.filter(m => m.created_at.slice(0, 7) === filterMonth)
+                : messages;
+
+            filteredMessages.forEach((msg, index) => {
                 const div = document.createElement('div'); div.className = 'msg-card';
                 div.onclick = (e) => onCardClick(div, e);
-                const tagsHtml = msg.emotions.map(e => `<span class="msg-tag">${e}</span>`).join('');
+                
+                const emotions = msg.emotions || [];
+                const tagsHtml = emotions.map(e => `<span class="msg-tag">${e}</span>`).join('');
+                const dateDisplay = new Date(msg.created_at).toLocaleString();
+
                 let commentsHtml = '';
                 if(msg.comments && msg.comments.length > 0) {
                     const items = msg.comments.map(c => `<div class="comment-item"><div class="comment-avatar"></div><div class="comment-content"><div>${c.text}</div></div><span class="comment-time">${c.time.split(' ')[0]}</span></div>`).join('');
@@ -592,21 +679,24 @@
                 div.innerHTML = `
                     <div class="msg-header">
                         <div style="display:flex; align-items:center;"><div class="msg-tags">${tagsHtml}</div><div class="toggle-icon" onclick="event.stopPropagation(); toggleCapsule(this)"><i class="fas fa-chevron-up"></i></div></div>
-                        <span class="msg-date">${msg.date}</span>
+                        <span class="msg-date">${dateDisplay}</span>
                     </div>
-                    <div class="msg-text">${msg.text}</div>
+                    <div class="msg-text">${msg.content}</div>
                     <div class="msg-actions"><div class="action-btn" onclick="toggleReply(${msg.id}, event)"><i class="fa-regular fa-comment-dots"></i> 回复</div></div>
                     ${commentsHtml}
                     <div class="reply-box" id="reply-box-${msg.id}" onclick="event.stopPropagation()"><input type="text" class="reply-input" id="reply-input-${msg.id}" placeholder="写下你的回复..."><button class="reply-send" onclick="sendReply(${msg.id}, event)">发送</button></div>
                 `;
-                grid.appendChild(div); setTimeout(() => div.classList.add('show'), index * 100);
+                grid.appendChild(div); 
+                setTimeout(() => div.classList.add('show'), index * 100);
             });
+            
+            renderArchiveList(messages);
         }
 
-        function renderArchive() {
+        function renderArchiveList(messages) {
             const list = document.getElementById('archive-list');
-            let messages = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-            const months = [...new Set(messages.map(m => m.monthKey))];
+            if(!list) return;
+            const months = [...new Set(messages.map(m => m.created_at.slice(0, 7)))];
             list.innerHTML = `<div class="archive-item active" onclick="loadMessages(); updateActiveArchive(this)">📂 全部留言</div>`;
             months.forEach(m => {
                 const div = document.createElement('div'); div.className = 'archive-item'; div.innerText = `📅 ${m}`;
@@ -614,9 +704,15 @@
                 list.appendChild(div);
             });
         }
-        function updateActiveArchive(target) { document.querySelectorAll('.archive-item').forEach(el => el.classList.remove('active')); target.classList.add('active'); }
+        function updateActiveArchive(target) { 
+            document.querySelectorAll('.archive-item').forEach(el => el.classList.remove('active')); 
+            target.classList.add('active'); 
+        }
+        function renderArchive() {} 
 
-        // --- Common ---
+        // =========================================================
+        // 4. 其他 UI 逻辑 (保持不变)
+        // =========================================================
         const startDate = new Date('2026-01-31T00:00:00');
         function updateTimer() {
             const diff = new Date() - startDate;
